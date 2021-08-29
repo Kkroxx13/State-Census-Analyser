@@ -11,13 +11,25 @@ namespace CensusAnalyser
     public class StateCensusAnalyser
     {
         int numberOfRecords = default;
-        string file;
+       readonly string file;
         public StateCensusAnalyser(string file)
         {
-            this.file = file;
+            try
+            {
+                if (!file.Contains(".csv"))
+                    throw new CensusAnalyserException(CensusAnalyserException.CensusExceptionType.incorrectType, "file type is incorrect");
+            }
+            catch (ArgumentOutOfRangeException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+        }
+        public int GetNoOfRecords()
+        {
+            return numberOfRecords;
         }
 
-        public int ReadRecords()
+        public void ReadRecords()
         {
             try
             {
@@ -26,12 +38,12 @@ namespace CensusAnalyser
                 {
                     this.numberOfRecords++;
                 }
-                return numberOfRecords;
             }
-            catch (FileNotFoundException)
+            catch (IOException)
             {
                 throw new CensusAnalyserException(CensusAnalyserException.CensusExceptionType.file_not_found, "Wrong file path or file missing");
             }
+
         }
         static void Main(string[] args)
         {

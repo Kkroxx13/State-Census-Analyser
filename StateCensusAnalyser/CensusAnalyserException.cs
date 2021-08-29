@@ -8,7 +8,7 @@ namespace StateCensusAnalyzer
     {
         public enum CensusExceptionType
         {
-            file_not_found
+            file_not_found,incorrectType
         }
         CensusExceptionType exceptionType;
         public CensusAnalyserException(CensusExceptionType exceptionType, string exceptionMessage) : base(exceptionMessage)

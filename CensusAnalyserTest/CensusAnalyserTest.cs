@@ -17,9 +17,9 @@ namespace CensusAnalyserTest
         {
             int expected = 29;
             StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser(filePath);
-            int actual = stateCensusAnalyser.ReadRecords();
-            Assert.AreEqual(expected, actual);           
-            
+            stateCensusAnalyser.ReadRecords();
+            int actual = stateCensusAnalyser.GetNoOfRecords();
+            Assert.AreEqual(expected, actual);
         }
         [Test]
         public void GivenCsvFilePAth_WhenImproper_ShouldThrowException()
@@ -31,6 +31,20 @@ namespace CensusAnalyserTest
                 stateCensusAnalyser.ReadRecords();
             }
             catch(Exception exception)
+            {
+                Assert.AreEqual(expected, exception.Message);
+            }
+        }
+        [Test]
+        public void GivenCsvFilePath_WhenTypeImproper_ShouldThrowException()
+        {
+            string expected = "file type is incorrect";
+            try
+            {
+                StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser(@"C:\Users\kkancha\source\repos\StateCensusAnalyser\StateData.txt");
+                stateCensusAnalyser.ReadRecords();
+            }
+            catch (Exception exception)
             {
                 Assert.AreEqual(expected, exception.Message);
             }
