@@ -16,14 +16,19 @@ namespace CensusAnalyser
         {
             try
             {
-                if (!file.Contains(".csv"))
+                if (file[file.Length - 4] != '.')
+                    throw new CensusAnalyserException(CensusAnalyserException.CensusExceptionType.incorrectDelimeter, "delimter is wrong for file type in path");
+
+                if (!file.EndsWith(".csv"))
                     throw new CensusAnalyserException(CensusAnalyserException.CensusExceptionType.incorrectType, "file type is incorrect");
+                this.file = file;
             }
             catch (ArgumentOutOfRangeException exception)
             {
                 Console.WriteLine(exception.Message);
             }
         }
+
         public int GetNoOfRecords()
         {
             return numberOfRecords;
@@ -41,10 +46,10 @@ namespace CensusAnalyser
             }
             catch (IOException)
             {
-                throw new CensusAnalyserException(CensusAnalyserException.CensusExceptionType.file_not_found, "Wrong file path or file missing");
+                throw new CensusAnalyserException(CensusAnalyserException.CensusExceptionType.fileNotFound, "Wrong file path or file missing");
             }
 
-        }
+        }   
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to State Census Analyser!!!");
