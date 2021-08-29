@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateCensusAnalyser", "StateCensusAnalyser\StateCensusAnalyser.csproj", "{DFBFE72F-E7CE-47D8-97E6-78A6F7E39AD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFBFE72F-E7CE-47D8-97E6-78A6F7E39AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFBFE72F-E7CE-47D8-97E6-78A6F7E39AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFBFE72F-E7CE-47D8-97E6-78A6F7E39AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFBFE72F-E7CE-47D8-97E6-78A6F7E39AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26208A33-D9D3-48DA-8714-C33D63EE2D7C}
+	EndGlobalSection
+EndGlobal
