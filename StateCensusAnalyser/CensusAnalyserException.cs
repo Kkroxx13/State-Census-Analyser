@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace StateCensusAnalyser
+namespace StateCensusAnalyzer
 {
-    class CensusAnalyserException : Exception
+    public class CensusAnalyserException : Exception
     {
         public enum CensusExceptionType
         {

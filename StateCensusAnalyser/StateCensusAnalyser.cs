@@ -2,11 +2,13 @@
 using System;
 using System.IO;
 using System.Text;
+using StateCensusAnalyzer;
 
 
-namespace StateCensusAnalyser
+namespace CensusAnalyser
+
 {
-    class StateCensusAnalyser
+    public class StateCensusAnalyser
     {
         int numberOfRecords = default;
         string file;
@@ -15,7 +17,7 @@ namespace StateCensusAnalyser
             this.file = file;
         }
 
-        public void ReadRecords()
+        public int ReadRecords()
         {
             try
             {
@@ -24,14 +26,11 @@ namespace StateCensusAnalyser
                 {
                     this.numberOfRecords++;
                 }
+                return numberOfRecords;
             }
             catch (FileNotFoundException)
             {
                 throw new CensusAnalyserException(CensusAnalyserException.CensusExceptionType.file_not_found, "Wrong file path or file missing");
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
             }
         }
         static void Main(string[] args)
